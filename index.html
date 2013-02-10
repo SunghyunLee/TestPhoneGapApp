@@ -8,9 +8,6 @@
 				position:relative;
 				background-color:blue;
 			}
-			#test:target {
-				animation:mover 2s;
-			}
 			#out {
 				background-color:red;
 				width:100px;
@@ -18,6 +15,10 @@
 				position:relative;
 				transition:width 1s;
 			}
+			/*
+			#test:target {
+				animation:mover 2s;
+			}			
 			#out:target {
 				width:400px;
 			}
@@ -25,13 +26,26 @@
 				from {left:0px;}
 				to {left:300px;}
 			}
+			*/
 		</style>
 		<script src="phonegap.js"></script>
+		<script src="jquery-1.9.1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$("#click2").click(function () {
+					if ($("#out").width() < 400){
+						$("#out").animate({width: '400'});
+					} else {
+						$("#out").animate({width: '100'});
+					}
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<p>Testing!!!!</p>
 		<div>
-			<a href="#test">Click 1</a> <a href="#out">Click 2</a>
+			<a href="#test">Click 1</a> <a id="click2" href="#out">Click 2</a>
 			<div id="test"></div>
 			<div id="out"></div>
 		</div>
