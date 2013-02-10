@@ -1,9 +1,39 @@
 <html>
 	<head>
 		<title>Test Page</title>
+		<style type="text/css">
+			#test {
+				width:100px;
+				height:100px;
+				position:relative;
+				background-color:blue;
+			}
+			#test:target {
+				animation:mover 2s;
+			}
+			#out {
+				background-color:red;
+				width:100px;
+				height:100px;
+				position:relative;
+				transition:width 1s;
+			}
+			#out:target {
+				width:400px;
+			}
+			@keyframes mover {
+				from {left:0px;}
+				to {left:300px;}
+			}
+		</style>
 		<script src="phonegap.js"></script>
 	</head>
 	<body>
 		<p>Testing!!!!</p>
+		<div>
+			<a href="#test">Click 1</a> <a href="#out">Click 2</a>
+			<div id="test"></div>
+			<div id="out"></div>
+		</div>
 	</body>
 </html>
